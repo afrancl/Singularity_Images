@@ -17,14 +17,11 @@ From: tensorflow/tensorflow:1.1.0-gpu-py3
 
 	# add universe repo and install some packages
 	sed -i '/xenial.*universe/s/^#//g' /etc/apt/sources.list
-	apt-get -y update && apt-get -y install wget
 	locale-gen en_US.UTF-8
-	sudo apt-get install libfftw3-dev libfftw3-doc
+	apt-get -y update && apt-get -y install wget
 	pip install --upgrade sugartensor
 	pip install wget
-	pip install numpy
-	pip install scipy
-	pip install pyfftw
+	pip install 'gym[all]'
 	apt-get clean
 	
 	NV_DRIVER_VERSION=375.20      # <---- EDIT: CHANGE THIS FOR YOUR SYSTEM
@@ -60,5 +57,4 @@ export PATH LD_LIBRARY_PATH
 %test
 	# Ensure that TensorFlow can be imported
 	/usr/bin/python -c "import tensorflow as tf"
-	/usr/bin/python -c "import pyfftw as fft"
 
