@@ -4,7 +4,7 @@
 # Check sections <---- EDIT:
 
 BootStrap: docker
-From: tensorflow/tensorflow:1.3.0-gpu-py3
+From: tensorflow/tensorflow:1.1.0-gpu-py3
 
 %runscript
 	# When executed, the container will run Python with the TensorFlow module
@@ -17,7 +17,7 @@ From: tensorflow/tensorflow:1.3.0-gpu-py3
 
 	# add universe repo and install some packages
 	sed -i '/xenial.*universe/s/^#//g' /etc/apt/sources.list
-	apt-get -y update && apt-get -y install wget && apt-get install -y locales
+	apt-get -y update && apt-get -y install wget
 	locale-gen en_US.UTF-8
 	sudo apt-get install libfftw3-dev libfftw3-doc
 	pip install --upgrade sugartensor
