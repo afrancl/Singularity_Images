@@ -17,8 +17,8 @@ From: tensorflow/tensorflow:1.3.0-gpu-py3
 
 	# add universe repo and install some packages
 	sed -i '/xenial.*universe/s/^#//g' /etc/apt/sources.list
+	apt-get -y update && apt-get -y install wget && apt-get install -y locales
 	locale-gen en_US.UTF-8
-	apt-get -y update && apt-get -y install wget
 	sudo apt-get install libfftw3-dev libfftw3-doc
 	pip install --upgrade sugartensor
 	pip install wget
